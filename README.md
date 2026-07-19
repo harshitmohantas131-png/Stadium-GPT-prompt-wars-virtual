@@ -65,23 +65,7 @@
 
 ---
 
-## 📦 Deployment (Vercel / Netlify / Google Cloud Run)
-
-### Vercel (Recommended)
-StadiumGPT includes a `vercel.json` configuration for seamless deployment:
-1. Run `npx vercel` in your terminal.
-2. Follow the interactive prompts.
-3. Add the `VITE_GEMINI_API_KEY` to your Vercel Project Settings > Environment Variables.
-4. Redeploy.
-
-### Google Cloud Run (Docker)
-A production-ready `Dockerfile` and `.dockerignore` are included for deploying to Google Cloud Run.
-```bash
-# Build and Deploy
-gcloud run deploy stadiumgpt --source . --region asia-south1 --allow-unauthenticated --set-build-env-vars=VITE_GEMINI_API_KEY=your_api_key
-```
-
----
+## 📦 Deployment On Vercel: https://stadium-gpt-prompt-wars-virtual.vercel.app/
 
 ## 🏗️ Architecture & Performance
 
