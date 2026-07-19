@@ -1,0 +1,48 @@
+.appContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 0 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.mainContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 2rem 0;
+  align-items: center;
+}
+
+.selectors {
+  display: flex;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1000px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.placeholder {
+  width: 100%;
+  max-width: 1000px;
+  padding: 3rem;
+  text-align: center;
+  margin-top: 2rem;
+  background: rgba(16, 185, 129, 0.05); /* very soft green tint */
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.placeholder h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-accent-green);
+}
+
+.placeholder p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}

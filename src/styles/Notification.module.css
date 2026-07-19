@@ -1,0 +1,144 @@
+.notificationContainer {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.bellButton {
+  position: relative;
+  background: rgba(30, 41, 59, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.bellButton:hover, .bellButton:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  outline: none;
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background: #ef4444;
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-bg-navy);
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.notificationsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 320px;
+}
+
+.notificationCard {
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  animation: slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+
+.notificationCard::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--color-accent-blue);
+}
+
+.notificationCard.Critical::before { background: #ef4444; }
+.notificationCard.High::before { background: #f59e0b; }
+.notificationCard.Medium::before { background: var(--color-accent-blue); }
+
+.icon {
+  font-size: 1.25rem;
+  margin-top: 0.2rem;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.title {
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.message {
+  color: var(--color-text-secondary);
+  font-size: 0.85rem;
+}
+
+.closeBtn {
+  margin-left: auto;
+  background: transparent;
+  border: none;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.closeBtn:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes popIn {
+  from { transform: scale(0); }
+  to { transform: scale(1); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.notificationCard.exiting {
+  animation: fadeOut 0.3s ease forwards;
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; transform: translateX(0); }
+  to { opacity: 0; transform: translateX(50px); }
+}

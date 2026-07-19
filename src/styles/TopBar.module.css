@@ -1,0 +1,55 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logoIcon {
+  font-size: 1.75rem;
+}
+
+.logoText {
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--color-white), var(--color-text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.languageSelector {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+  outline: none;
+  transition: var(--transition);
+}
+
+.dropdown:hover, .dropdown:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.dropdown option {
+  background: var(--color-bg-navy);
+  color: var(--color-text-primary);
+}

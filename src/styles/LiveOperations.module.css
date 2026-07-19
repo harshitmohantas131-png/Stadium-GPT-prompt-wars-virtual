@@ -1,0 +1,300 @@
+.sectionContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.sectionHeader h2 {
+  font-size: 2rem;
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionHeader p {
+  color: var(--color-accent-blue);
+  font-weight: 500;
+}
+
+/* 2x2 Grid for desktop */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.fullWidth {
+  grid-column: 1 / -1;
+}
+
+/* Cards Base */
+.card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-white);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.75rem;
+}
+
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+}
+
+/* Info Rows for Live Stadium Status */
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.infoLabel {
+  opacity: 0.8;
+}
+
+.infoValue {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+/* Status Colors */
+.statusNormal { color: var(--color-accent-green); }
+.statusBusy { color: #f59e0b; } /* Orange */
+.statusCritical { color: #ef4444; } /* Red */
+
+.indicator {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.indicator.statusNormal { background-color: var(--color-accent-green); box-shadow: 0 0 8px var(--color-accent-green); }
+.indicator.statusBusy { background-color: #f59e0b; box-shadow: 0 0 8px #f59e0b; }
+.indicator.statusCritical { background-color: #ef4444; box-shadow: 0 0 8px #ef4444; animation: pulse 1.5s infinite; }
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.5); opacity: 0.5; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* AI Insights List */
+.insightsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.insightItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem;
+  border-radius: 8px;
+}
+
+/* Smart Crowd Heatmap */
+.heatmapGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  width: 100%;
+  height: 200px;
+}
+
+.heatmapSection {
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-bg-dark);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.heatmapSection:hover {
+  filter: brightness(1.1);
+  transform: scale(1.02);
+}
+
+.heatmapGreen { background-color: rgba(16, 185, 129, 0.7); }
+.heatmapYellow { background-color: rgba(250, 204, 21, 0.7); }
+.heatmapOrange { background-color: rgba(245, 158, 11, 0.7); }
+.heatmapRed { background-color: rgba(239, 68, 68, 0.7); }
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg-navy);
+  color: var(--color-white);
+  padding: 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s;
+  z-index: 10;
+  border: 1px solid var(--glass-border);
+}
+
+.heatmapSection:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Timeline */
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  padding-left: 1rem;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 3px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.1);
+}
+.timelineEvent {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+  opacity: 0.5;
+  transition: all 0.3s;
+}
+.timelineEvent.active {
+  opacity: 1;
+}
+.timelineEvent::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 5px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-text-secondary);
+}
+.timelineEvent.active::before {
+  background: var(--color-accent-blue);
+  box-shadow: 0 0 8px var(--color-accent-blue);
+}
+
+.eventTime {
+  font-weight: 600;
+  color: var(--color-accent-blue);
+  min-width: 50px;
+}
+
+/* AI Alerts Center */
+.alertsCenter {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.alertItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.alertCritical { border-left-color: #ef4444; }
+.alertHigh { border-left-color: #f59e0b; }
+.alertMedium { border-left-color: var(--color-accent-blue); }
+.alertLow { border-left-color: var(--color-accent-green); }
+
+.alertHeader {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  color: var(--color-white);
+}
+
+.alertTimestamp {
+  font-size: 0.8rem;
+  color: var(--color-text-secondary);
+  font-weight: 400;
+}
+
+.alertAction {
+  font-size: 0.85rem;
+  color: var(--color-accent-blue);
+}
+
+/* AI Recommendations */
+.recommendationsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.recommendationCard {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
